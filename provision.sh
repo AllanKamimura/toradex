@@ -1,7 +1,7 @@
 #!/bin/bash
 
 print() {
-    echo -e $1
+    sudo echo -e $1
 }
 
 # Step 1: Get the provision code
@@ -23,3 +23,7 @@ done
 
 # Step3: Run the cloud provisioning script
 curl -fsSL https://app.torizon.io/statics/scripts/provision-device.sh | sudo bash -s -- -t "${access}"
+
+sync
+sudo systemctl enable remote-access
+sudo systemctl start remote-access
